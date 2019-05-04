@@ -179,19 +179,19 @@ namespace powerfunctions {
 
    /**
      * Configures a motor direction.
-     * @param motor the motor
-     * @param direction the direction
+     * @param channel the channel
+     * @param red the direction of red
+     * @param blue the direction of blue
      */
-    //% blockId=pf_set_motor_direction
-    //% block="set direction | of motor %motor | to %direction"
+    //% blockId=pf_direct_control
+    //% block="controls directions | of motor %motor | to %channel"
     //% weight=20
-    //% motor.fieldEditor="gridpicker" motor.fieldOptions.columns=4 motor.fieldOptions.tooltips="false"
     export function 
-    directControl( channel:    PowerFunctionsChannel, 
-                   outputRed:  PowerFunctionsCommand, 
-                   outputBlue: PowerFunctionsCommand ) 
+    directControl( channel: PowerFunctionsChannel, 
+                   red:  PowerFunctionsCommand, 
+                   blue: PowerFunctionsCommand ) 
     {
-        createComboDirectMessage( channel, outputRed, outputBlue );
+        createComboDirectMessage( channel, red, blue );
     }
     
     namespace message {
