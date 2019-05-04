@@ -183,16 +183,28 @@ namespace powerfunctions {
      * Configures a motor direction.
      */
     //% blockId=pf_direct_control
-    //% block
-    //="set channel motors | of %channel | to %red | to %blue"
+    //% block="direct control | of %channel | to %red | to %blue"
     //% weight=20
     export function directControl( channel: PowerFunctionsChannel, red:  PowerFunctionsCommand, blue: PowerFunctionsCommand ) {
         const msg = message.createComboDirectMessage( channel, red, blue )
         if (state) {
             state.irDevice.sendMessage( msg )
         }
-        
     }
+    
+    /**
+     * Configures a motor direction.
+     */
+    //% blockId=pf_send_cmd
+    //% block="send ir command | %msg"
+    //% weight=20
+    export function sendCommand( msg: number ) {
+        if (state) {
+            state.irDevice.sendMessage( msg )
+        }
+    }
+    
+    
     
     namespace message {
 
