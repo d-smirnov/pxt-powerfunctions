@@ -70,6 +70,7 @@ namespace powerfunctions {
 
     let state: PowerFunctionsState
 
+    //% block
     function getChannel(motor: PowerFunctionsMotor): PowerFunctionsChannel {
         const MOTOR_TO_CHANNEL = [
             PowerFunctionsChannel.One, PowerFunctionsChannel.Two, PowerFunctionsChannel.Three, PowerFunctionsChannel.Four,
