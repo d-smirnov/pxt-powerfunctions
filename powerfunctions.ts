@@ -184,13 +184,9 @@ namespace powerfunctions {
      * @param blue the direction of blue
      */
     //% blockId=pf_direct_control
-    //% block="controls directions | of motor %motor | to %channel"
+    //% block="set channel motors | of %channel | to %red | to %blue"
     //% weight=20
-    export function 
-    directControl( channel: PowerFunctionsChannel, 
-                   red:  PowerFunctionsCommand, 
-                   blue: PowerFunctionsCommand ) 
-    {
+    export function directControl( channel: PowerFunctionsChannel, red:  PowerFunctionsCommand, blue: PowerFunctionsCommand ) {
         createComboDirectMessage( channel, red, blue );
     }
     
