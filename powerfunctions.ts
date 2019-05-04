@@ -177,32 +177,20 @@ namespace powerfunctions {
         }
     }
 
+
     /**
      * Configures a motor direction.
-     * @param motor the motor
-     * @param direction the direction
-     */
-    //% blockId=pf_set_motor_direction2
-    //% block="set 2 direction | of motor %motor | to %direction"
-    //% weight=20
-    //% motor.fieldEditor="gridpicker" motor.fieldOptions.columns=4 motor.fieldOptions.tooltips="false"
-    export function setMotorDirection2(motor: PowerFunctionsMotor, direction: PowerFunctionsDirection) {
-        if (state) {
-            state.motorDirections[motor] = direction
-        }
-    }
-    
-   /**
-     * Configures a motor direction.
-     * @param channel the channel
-     * @param red the direction of red
-     * @param blue the direction of blue
      */
     //% blockId=pf_direct_control
-    //% block="set channel motors | of %channel | to %red | to %blue"
+    //% block
+    //="set channel motors | of %channel | to %red | to %blue"
     //% weight=20
     export function directControl( channel: PowerFunctionsChannel, red:  PowerFunctionsCommand, blue: PowerFunctionsCommand ) {
-        createComboDirectMessage( channel, red, blue );
+        const msg = message.createComboDirectMessage( channel, red, blue )
+        if (state) {
+            state.irDevice.sendMessage( msg )
+        }
+        
     }
     
     namespace message {
