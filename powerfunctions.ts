@@ -177,6 +177,21 @@ namespace powerfunctions {
         }
     }
 
+    /**
+     * Configures a motor direction.
+     * @param motor the motor
+     * @param direction the direction
+     */
+    //% blockId=pf_set_motor_direction2
+    //% block="set 2 direction | of motor %motor | to %direction"
+    //% weight=20
+    //% motor.fieldEditor="gridpicker" motor.fieldOptions.columns=4 motor.fieldOptions.tooltips="false"
+    export function setMotorDirection2(motor: PowerFunctionsMotor, direction: PowerFunctionsDirection) {
+        if (state) {
+            state.motorDirections[motor] = direction
+        }
+    }
+    
    /**
      * Configures a motor direction.
      * @param channel the channel
