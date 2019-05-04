@@ -183,13 +183,11 @@ namespace powerfunctions {
      * Configures a motor direction.
      */
     //% blockId=pf_direct_control
-    //% block="direct control | of %channel | to %red | to %blue"
+    //% block="direct control | of channel %channel | set red to %red | set blue to %blue"
     //% weight=20
     export function directControl( channel: PowerFunctionsChannel, red:  PowerFunctionsCommand, blue: PowerFunctionsCommand ) {
         const msg = message.createComboDirectMessage( channel, red, blue )
-        if (state) {
-            state.irDevice.sendMessage( msg )
-        }
+        sendCommand( msg )
     }
     
     /**
@@ -229,7 +227,7 @@ namespace powerfunctions {
             }
         }
 
-        function createMessageFromNibbles(nibble1: number, nibble2: number, nibble3: number) {
+        function createMessageFromNibbles(nibble1: number, nibble2: number, nibble3: number): number {
             const lrc = 0xF ^ nibble1 ^ nibble2 ^ nibble3
             return (nibble1 << 12) | (nibble2 << 8) | (nibble3 << 4) | lrc
         }
@@ -241,7 +239,7 @@ namespace powerfunctions {
             return createMessageFromNibbles(nibble1, nibble2, nibble3)
         }
 
-        export function createComboDirectMessage(channel: PowerFunctionsChannel, outputRed: PowerFunctionsCommand, outputBlue: PowerFunctionsCommand) {
+        export function createComboDirectMessage(channel: PowerFunctionsChannel, outputRed: PowerFunctionsCommand, outputBlue: PowerFunctionsCommand) : number {
             const nibble1 = 0b0000 + channel
             const nibble2 = 0b0001
             const nibble3 = (outputBlue << 2) + outputRed
