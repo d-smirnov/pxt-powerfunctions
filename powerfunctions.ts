@@ -177,6 +177,23 @@ namespace powerfunctions {
         }
     }
 
+   /**
+     * Configures a motor direction.
+     * @param motor the motor
+     * @param direction the direction
+     */
+    //% blockId=pf_set_motor_direction
+    //% block="set direction | of motor %motor | to %direction"
+    //% weight=20
+    //% motor.fieldEditor="gridpicker" motor.fieldOptions.columns=4 motor.fieldOptions.tooltips="false"
+    export function 
+    directControl( channel:    PowerFunctionsChannel, 
+                   outputRed:  PowerFunctionsCommand, 
+                   outputBlue: PowerFunctionsCommand ) 
+    {
+        createComboDirectMessage( channel, outputRed, outputBlue );
+    }
+    
     namespace message {
 
         function mapValueToPwmElseFloat(value: number): number {
