@@ -60,7 +60,7 @@ enum PowerFunctionsCommand {
     Brake = 3
 }
 
-//% weight=99 color=#ffbc11 icon="\uf0e2" block="Power Functions Ex"
+//% weight=99 advanced=true color=#ffbc11 icon="\uf1ec" block="Power Functions Ex"
 namespace powerfunctions {
 
     interface PowerFunctionsState {
