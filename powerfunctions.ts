@@ -198,7 +198,7 @@ namespace powerfunctions {
     //% weight=20
     export function sendCommand( msg: number ) {
         if (state) {
-            state.irDevice.sendMessage( msg )
+            state.irDevice.sendMessage( msg, 1 )
         }
     }
     
@@ -319,11 +319,11 @@ namespace powerfunctions {
             const p1 = markMicroSeconds - this.writeAndWaitEffort
         }
 
-        public sendMessage(message: number): void {
+        public sendMessage( message: number, sendCnt = 5 ): void {
             const MAX_LENGTH_MS = 16
             const channel = 1 + ((message >> 12) & 0b0011)
 
-            for (let sendCount = 0; sendCount < 5; sendCount++) {
+            for (let sendCount = 0; sendCount < sendCnt; sendCount++) {
                 const MESSAGE_BITS = 16
 
                 let mask = 1 << (MESSAGE_BITS - 1)
