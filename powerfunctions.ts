@@ -14,7 +14,7 @@ enum PowerFunctionSendCount {
     //% block="four times"
     four_times = 4,
     //% block="five times"
-    four_times = 5
+    five_times = 5
 }
     
 enum PowerFunctionsChannel {
