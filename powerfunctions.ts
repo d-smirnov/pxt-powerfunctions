@@ -206,11 +206,11 @@ namespace powerfunctions {
      * Configures a motor direction.
      */
     //% blockId=pf_send_cmd
-    //% block="send ir command | %msg | repeat message %repeatTimes"
+    //% block="send ir command | %msg | %times"
     //% weight=20
-    export function sendCommand( msg: number, repeatTimes = PowerFunctionSendCount.once ) {
+    export function sendCommand( msg: number, times = PowerFunctionSendCount.once ) {
         if (state) {
-            state.irDevice.sendMessage( msg, repeatTimes )
+            state.irDevice.sendMessage( msg, times )
         }
     }
     
