@@ -4,7 +4,19 @@
  *
  * (c) 2017-2019, Philipp Henkel
  */
-
+enum PowerFunctionSendCount {
+    //% block="once"
+    once = 1,
+    //% block="twice"
+    twice = 2,
+    //% block="three times"
+    three_times = 3,
+    //% block="four times"
+    four_times = 4,
+    //% block="five times"
+    four_times = 5
+}
+    
 enum PowerFunctionsChannel {
     //% block="1"
     One = 0,
@@ -194,11 +206,11 @@ namespace powerfunctions {
      * Configures a motor direction.
      */
     //% blockId=pf_send_cmd
-    //% block="send ir command | %msg"
+    //% block="send ir command | %msg | repeat message %repeatTimes"
     //% weight=20
-    export function sendCommand( msg: number ) {
+    export function sendCommand( msg: number, repeatTimes = PowerFunctionSendCount.once ) {
         if (state) {
-            state.irDevice.sendMessage( msg, 1 )
+            state.irDevice.sendMessage( msg, repeatTimes )
         }
     }
     
